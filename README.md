@@ -13,8 +13,7 @@ There are two scenes:
 Camera implements a full stack of movements: forward, backward, right, left, up, down, along with freelook using Eulerian geometry.
 
 The scenes, including the Solar System scene, are implemented using a scene graph. In the Solar System, the Sun is the root node, the Earth is a child of the Sun, and the Moon is a child of the Earth.
-For the Solar System scene, each node's world matrix is computed as  $W = W_{parent} \times B$.  
-For the dummy scene, the transformation is slightly different: $W = W_{parent} \times P \times B$, and the final model matrix used for drawing is (same in both scenes) $M = W \times L$.
+For the Solar System scene, each node's world matrix is computed as  $W = W_{parent} \times B$. For the dummy scene, the transformation is slightly different: $W = W_{parent} \times P \times B$, and the final model matrix used for drawing is (same in both scenes) $M = W \times L$.
 
 The dummy scene contains three stacked, scaled pyramids with the Earth placed on top. Each object is translated relative to its parent node, parent to children hierarchy is from bottom to top. The pyramids sway and rotate, and these transformations are shared from the bottom. The sway is amplified because the post matrix is applied at each node in the hierarchy. The Earth also performs its own self-rotation. The root of the whole scene, is a "dummy root", and scene also contains three cubes. One cube rotates around a dummy root, while the other two rotate around the first cube in diagonal orbits. If the dummy root is moved, the scene, including pyramids, moves together with it. The cubes also perform self-scaling using a sine function.
 
